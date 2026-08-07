@@ -23,19 +23,23 @@ export default async function Home() {
       </nav>
 
       {/* Hero Section */}
-      <header className="hero-section" style={{ backgroundColor: '#126b5d', color: 'white', padding: '5rem 5%', textAlign: 'left', minHeight: '60vh', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-        <div style={{ maxWidth: '1000px', margin: '0 auto', width: '100%' }}>
-          <div style={{ fontSize: '0.9rem', textTransform: 'uppercase', letterSpacing: '2px', marginBottom: '1.5rem', color: '#a7f3d0', fontWeight: '600' }}>
+      <header className="hero-section" style={{ backgroundColor: '#0F172A', color: 'white', padding: '6rem 5%', textAlign: 'left', minHeight: '65vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', position: 'relative', overflow: 'hidden' }}>
+        {/* Animated Background Shapes for Dark Style */}
+        <div style={{ position: 'absolute', top: '-10%', left: '-5%', width: '40vw', height: '40vw', background: '#4F46E5', borderRadius: '50%', filter: 'blur(100px)', opacity: '0.3', zIndex: 0 }}></div>
+        <div style={{ position: 'absolute', bottom: '-10%', right: '-5%', width: '30vw', height: '30vw', background: '#EC4899', borderRadius: '50%', filter: 'blur(100px)', opacity: '0.3', zIndex: 0 }}></div>
+
+        <div style={{ maxWidth: '1000px', margin: '0 auto', width: '100%', position: 'relative', zIndex: 1 }}>
+          <div style={{ fontSize: '0.9rem', textTransform: 'uppercase', letterSpacing: '2px', marginBottom: '1.5rem', color: '#94A3B8', fontWeight: '600' }}>
             Rapport de Cartographie
           </div>
-          <h1 style={{ fontSize: '3.5rem', fontWeight: '800', marginBottom: '2rem', lineHeight: '1.1', textTransform: 'uppercase' }}>
+          <h1 style={{ fontSize: '2.2rem', fontWeight: '800', marginBottom: '1.5rem', lineHeight: '1.3', textTransform: 'uppercase', background: 'linear-gradient(90deg, #ffffff, #cbd5e1)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', maxWidth: '850px' }}>
             Cartographie du Secteur Créatif<br />au Sénégal sous l'angle du genre
           </h1>
-          <p style={{ fontSize: '1.2rem', color: '#ccfbf1', maxWidth: '700px', marginBottom: '3rem', lineHeight: '1.6' }}>
+          <p style={{ fontSize: '1.15rem', color: '#e2e8f0', maxWidth: '700px', marginBottom: '3.5rem', lineHeight: '1.6' }}>
             Comprendre et réduire les barrières de genre dans le secteur créatif africain. Une initiative du projet "Behind the Scenes".
           </p>
-          <a href="#documents" className="btn-primary" style={{ padding: '1rem 2.5rem', fontSize: '1.1rem', borderRadius: '4px', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '0.5rem', backgroundColor: '#d9534f', color: 'white', border: 'none', fontWeight: '600' }}>
-            <FileText size={20} /> Accéder au Rapport
+          <a href="#documents" className="btn-primary" style={{ padding: '1.2rem 3rem', fontSize: '1.3rem', borderRadius: '50px', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '0.8rem', background: 'linear-gradient(135deg, #d9534f, #f59e0b)', color: 'white', border: 'none', fontWeight: '700', boxShadow: '0 8px 30px rgba(217, 83, 79, 0.6)', transition: 'all 0.3s ease', textTransform: 'uppercase', letterSpacing: '1px' }}>
+            <FileText size={28} /> Accéder au Rapport
           </a>
         </div>
       </header>
