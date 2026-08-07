@@ -13,11 +13,9 @@ export default async function Home() {
     <div className="landing-page" style={{ scrollBehavior: 'smooth', backgroundColor: '#f8fafc', color: '#1e293b' }}>
       
       {/* Navigation */}
-      <nav style={{ display: 'flex', justifyContent: 'space-between', padding: '1rem 5%', backgroundColor: '#ffffff', borderBottom: '1px solid #e2e8f0' }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-          <div style={{ fontWeight: 'bold', fontSize: '1.2rem', color: '#126b5d' }}>LAREM - UCAD</div>
-          <div style={{ width: '1px', height: '24px', backgroundColor: '#cbd5e1' }}></div>
-          <div style={{ fontSize: '0.9rem', color: '#64748b', fontWeight: '500' }}>BEHIND THE SCENES</div>
+      <nav style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '1rem 5%', backgroundColor: '#ffffff', borderBottom: '1px solid #e2e8f0' }}>
+        <div style={{ display: 'flex', alignItems: 'center' }}>
+          <img src="/logo.png" alt="ICRW, LAREM, Mastercard Foundation" style={{ height: '50px', objectFit: 'contain' }} />
         </div>
         <Link href="/admin" style={{ color: '#64748b', textDecoration: 'none', fontWeight: '500', fontSize: '0.9rem' }}>
           Administration
