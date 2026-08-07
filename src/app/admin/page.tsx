@@ -1,6 +1,7 @@
 import prisma from '@/lib/prisma'
-import { uploadDocument, deleteDocument } from './documentActions'
+import { deleteDocument } from './documentActions'
 import { Eye, Trash2 } from 'lucide-react'
+import UploadForm from '@/components/UploadForm'
 
 export const dynamic = 'force-dynamic'
 
@@ -18,11 +19,8 @@ export default async function AdminDashboard() {
 
       <section className="upload-section card">
         <h2>Ajouter un document</h2>
-        <p className="doc-meta" style={{ marginTop: '0.5rem' }}>Sélectionnez un fichier pour le mettre en ligne immédiatement.</p>
-        <form action={uploadDocument} className="upload-form">
-          <input type="file" name="file" required className="file-input" />
-          <button type="submit" className="btn-primary">Téléverser</button>
-        </form>
+        <p className="doc-meta" style={{ marginTop: '0.5rem' }}>Prise en charge des gros fichiers PDF (jusqu'à 150 Mo).</p>
+        <UploadForm />
       </section>
 
       <section className="documents-section">

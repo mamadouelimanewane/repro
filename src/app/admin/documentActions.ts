@@ -5,24 +5,18 @@ import prisma from '@/lib/prisma'
 import crypto from 'crypto'
 import { put, del } from '@vercel/blob'
 
-export async function uploadDocument(formData: FormData) {
-  const file = formData.get('file') as File
-  if (!file) return;
-  
-  // Upload to Vercel Blob
-  const blob = await put(file.name, file, { access: 'public' })
-  
+export async function saveDocumentToDb(data: { name: string, url: string, mimetype: string, size: number }) {
   await prisma.document.create({
     data: {
-      name: file.name,
-      filename: file.name,
-      url: blob.url,
-      mimetype: file.type,
-      size: file.size,
+      name: data.name,
+      filename: data.name,
+      url: data.url,
+      mimetype: data.mimetype,
+      size: data.size,
     }
   })
-  
   revalidatePath('/admin')
+  revalidatePath('/')
 }
 
 export async function generateAccess(documentId: string, host: string) {
