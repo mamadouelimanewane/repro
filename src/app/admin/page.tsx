@@ -1,5 +1,6 @@
 import prisma from '@/lib/prisma'
 import { uploadDocument, deleteDocument } from './documentActions'
+import { Eye, Trash2 } from 'lucide-react'
 
 export const dynamic = 'force-dynamic'
 
@@ -11,11 +12,13 @@ export default async function AdminDashboard() {
   return (
     <div className="admin-container">
       <header className="admin-header">
-        <h1>Tableau de Bord Administrateur</h1>
+        <h1>Tableau de Bord</h1>
+        <a href="/" className="btn-secondary">Retour au site</a>
       </header>
 
       <section className="upload-section card">
         <h2>Ajouter un document</h2>
+        <p className="doc-meta" style={{ marginTop: '0.5rem' }}>Sélectionnez un fichier pour le mettre en ligne immédiatement.</p>
         <form action={uploadDocument} className="upload-form">
           <input type="file" name="file" required className="file-input" />
           <button type="submit" className="btn-primary">Téléverser</button>
@@ -23,7 +26,7 @@ export default async function AdminDashboard() {
       </section>
 
       <section className="documents-section">
-        <h2>Tous les Documents</h2>
+        <h2 style={{ marginBottom: '1.5rem' }}>Tous les Documents ({documents.length})</h2>
         <div className="documents-grid">
           {documents.map((doc: any) => (
             <div key={doc.id} className="document-card card">
@@ -35,8 +38,15 @@ export default async function AdminDashboard() {
               </div>
               
               <div className="doc-actions">
-                <form action={deleteDocument.bind(null, doc.id)}>
-                  <button type="submit" className="btn-danger">Supprimer</button>
+                {doc.url && (
+                  <a href={doc.url} target="_blank" rel="noopener noreferrer" className="btn-secondary" title="Afficher">
+                    <Eye size={16} /> Afficher
+                  </a>
+                )}
+                <form action={deleteDocument.bind(null, doc.id)} style={{ flex: 1 }}>
+                  <button type="submit" className="btn-danger" style={{ width: '100%' }}>
+                    <Trash2 size={16} /> Supprimer
+                  </button>
                 </form>
               </div>
             </div>
