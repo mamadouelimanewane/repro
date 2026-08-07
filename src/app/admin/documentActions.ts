@@ -2,37 +2,21 @@
 
 import { revalidatePath } from 'next/cache'
 import prisma from '@/lib/prisma'
-import { writeFile, mkdir } from 'fs/promises'
-import { join } from 'path'
 import crypto from 'crypto'
-import QRCode from 'qrcode'
-
-const UPLOAD_DIR = join(process.cwd(), 'private_uploads')
-
-const ensureUploadDir = async () => {
-  try {
-    await mkdir(UPLOAD_DIR, { recursive: true })
-  } catch (error) {}
-}
+import { put, del } from '@vercel/blob'
 
 export async function uploadDocument(formData: FormData) {
   const file = formData.get('file') as File
   if (!file) return;
   
-  await ensureUploadDir()
-  
-  const bytes = await file.arrayBuffer()
-  const buffer = Buffer.from(bytes)
-  
-  const uniqueFilename = `${crypto.randomUUID()}-${file.name}`
-  const filepath = join(UPLOAD_DIR, uniqueFilename)
-  
-  await writeFile(filepath, buffer)
+  // Upload to Vercel Blob
+  const blob = await put(file.name, file, { access: 'public' })
   
   await prisma.document.create({
     data: {
       name: file.name,
-      filename: uniqueFilename,
+      filename: file.name,
+      url: blob.url,
       mimetype: file.type,
       size: file.size,
     }
@@ -55,6 +39,14 @@ export async function generateAccess(documentId: string, host: string) {
 }
 
 export async function deleteDocument(documentId: string) {
+  const doc = await prisma.document.findUnique({ where: { id: documentId } })
+  if (doc?.url) {
+    try {
+      await del(doc.url)
+    } catch (e) {
+      // Ignore if blob already deleted
+    }
+  }
   await prisma.document.delete({
     where: { id: documentId }
   })

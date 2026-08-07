@@ -3,13 +3,14 @@ generator client {
 }
 
 datasource db {
-  provider = "sqlite"
+  provider = "postgresql"
 }
 
 model Document {
   id        String   @id @default(uuid())
   name      String
   filename  String
+  url       String?
   mimetype  String
   size      Int
   createdAt DateTime @default(now())

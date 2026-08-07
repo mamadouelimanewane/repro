@@ -1,9 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
 import prisma from '@/lib/prisma'
-import { join } from 'path'
-import { readFile } from 'fs/promises'
-
-const UPLOAD_DIR = join(process.cwd(), 'private_uploads')
 
 export async function GET(request: NextRequest) {
   const searchParams = request.nextUrl.searchParams
@@ -18,23 +14,9 @@ export async function GET(request: NextRequest) {
     include: { document: true }
   })
   
-  if (!access) {
-    return new NextResponse('Code invalide', { status: 403 })
+  if (!access || !access.document.url) {
+    return new NextResponse('Code invalide ou document introuvable', { status: 403 })
   }
   
-  const document = access.document
-  const filePath = join(UPLOAD_DIR, document.filename)
-  
-  try {
-    const fileBuffer = await readFile(filePath)
-    
-    return new NextResponse(fileBuffer, {
-      headers: {
-        'Content-Type': document.mimetype,
-        'Content-Disposition': `attachment; filename="${document.name}"`,
-      }
-    })
-  } catch (error) {
-    return new NextResponse('Erreur de lecture du fichier', { status: 500 })
-  }
+  return NextResponse.redirect(access.document.url)
 }
