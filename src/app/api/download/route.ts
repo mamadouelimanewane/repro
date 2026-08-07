@@ -3,20 +3,19 @@ import prisma from '@/lib/prisma'
 
 export async function GET(request: NextRequest) {
   const searchParams = request.nextUrl.searchParams
-  const code = searchParams.get('code')
+  const docId = searchParams.get('id')
   
-  if (!code) {
-    return new NextResponse('Code manquant', { status: 400 })
+  if (!docId) {
+    return new NextResponse('ID manquant', { status: 400 })
   }
   
-  const access = await prisma.access.findFirst({
-    where: { password: code },
-    include: { document: true }
+  const document = await prisma.document.findUnique({
+    where: { id: docId }
   })
   
-  if (!access || !access.document.url) {
-    return new NextResponse('Code invalide ou document introuvable', { status: 403 })
+  if (!document || !document.url) {
+    return new NextResponse('Document introuvable', { status: 404 })
   }
   
-  return NextResponse.redirect(access.document.url)
+  return NextResponse.redirect(document.url)
 }
