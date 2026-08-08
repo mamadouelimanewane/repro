@@ -36,6 +36,9 @@ export default async function Home() {
           <p className="hero-description">
             Comprendre et réduire les barrières de genre dans le secteur créatif africain. Une initiative du projet "Behind the Scenes".
           </p>
+          <Link href="/documents" className="btn-primary hero-btn">
+            <FileText size={28} /> Accéder au Rapport
+          </Link>
         </div>
       </header>
 
