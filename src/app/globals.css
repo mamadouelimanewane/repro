@@ -247,6 +247,28 @@ button, .btn-primary, .btn-secondary, .btn-danger {
   max-width: 800px;
   width: 100%;
 }
+
+/* Custom Scrollbar for Documents List */
+.documents-list::-webkit-scrollbar {
+  width: 10px;
+}
+.documents-list::-webkit-scrollbar-track {
+  background: #f1f5f9;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+}
+.documents-list::-webkit-scrollbar-thumb {
+  background-color: var(--primary);
+  border-radius: 8px;
+  border: 2px solid #f1f5f9;
+}
+.documents-list::-webkit-scrollbar-thumb:hover {
+  background-color: var(--primary-hover);
+}
+/* Ensure smooth scrolling on touch devices */
+.documents-list {
+  -webkit-overflow-scrolling: touch;
+}
 .document-card-public {
   display: flex;
   flex-direction: row;
