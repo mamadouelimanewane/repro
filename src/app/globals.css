@@ -250,7 +250,7 @@ button, .btn-primary, .btn-secondary, .btn-danger {
 
 /* Custom Scrollbar for Documents List */
 .documents-list::-webkit-scrollbar {
-  width: 10px;
+  width: 14px;
 }
 .documents-list::-webkit-scrollbar-track {
   background: #f1f5f9;
@@ -265,6 +265,32 @@ button, .btn-primary, .btn-secondary, .btn-danger {
 .documents-list::-webkit-scrollbar-thumb:hover {
   background-color: var(--primary-hover);
 }
+
+/* Flèches (dessin) haut et bas pour la barre de défilement */
+.documents-list::-webkit-scrollbar-button:single-button {
+  display: block;
+  background-color: #f8fafc;
+  height: 24px;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.documents-list::-webkit-scrollbar-button:single-button:hover {
+  background-color: #e2e8f0;
+}
+/* Flèche Haut */
+.documents-list::-webkit-scrollbar-button:single-button:vertical:decrement {
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%23126b5d' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'><path d='M18 15l-6-6-6 6'/></svg>");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+/* Flèche Bas */
+.documents-list::-webkit-scrollbar-button:single-button:vertical:increment {
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%23126b5d' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'><path d='M6 9l6 6 6-6'/></svg>");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
 /* Ensure smooth scrolling on touch devices */
 .documents-list {
   -webkit-overflow-scrolling: touch;
