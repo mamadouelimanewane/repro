@@ -31,7 +31,7 @@ export default async function DocumentsPage() {
           <p>Fichiers actuellement disponibles en libre accès.</p>
         </div>
 
-        <div className="documents-list" style={{ maxHeight: '450px', overflowY: 'auto', paddingRight: '10px' }}>
+        <div className="documents-list" style={{ maxHeight: '350px', overflowY: 'auto', paddingRight: '10px' }}>
           {documents.map((doc: any) => (
             <div key={doc.id} className="document-card-public">
               <div className="doc-info-public">
