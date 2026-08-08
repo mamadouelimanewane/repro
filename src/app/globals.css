@@ -410,7 +410,35 @@ button, .btn-primary, .btn-secondary, .btn-danger {
 }
 
 /* Responsive Media Queries */
+/* Mobile Scroll Hint */
+.mobile-scroll-hint {
+  display: none; /* Caché sur desktop */
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+  color: var(--primary);
+  font-size: 0.95rem;
+  font-weight: 600;
+  animation: bounceHint 2s infinite;
+}
+@keyframes bounceHint {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(8px);
+  }
+  60% {
+    transform: translateY(4px);
+  }
+}
+
 @media (max-width: 768px) {
+  .mobile-scroll-hint {
+    display: flex; /* Visible uniquement sur mobile */
+  }
   .nav-bar {
     flex-direction: column;
     gap: 1rem;

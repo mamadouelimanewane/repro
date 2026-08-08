@@ -1,5 +1,5 @@
 import prisma from '@/lib/prisma'
-import { Download, FileText, Zap, Shield, Globe, Eye } from 'lucide-react'
+import { Download, FileText, Zap, Shield, Globe, Eye, ChevronDown } from 'lucide-react'
 import Link from 'next/link'
 
 export const dynamic = 'force-dynamic'
@@ -103,6 +103,14 @@ export default async function Home() {
             </div>
           )}
         </div>
+        
+        {/* Mobile Scroll Hint (Only shows if multiple documents exist) */}
+        {documents.length > 1 && (
+          <div className="mobile-scroll-hint">
+            <ChevronDown size={28} color="var(--primary)" />
+            <span>Faites défiler pour voir plus</span>
+          </div>
+        )}
       </section>
       
       {/* Footer */}
