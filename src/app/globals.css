@@ -365,36 +365,74 @@ button, .btn-primary, .btn-secondary, .btn-danger {
 @media (max-width: 768px) {
   .nav-bar {
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 1rem;
+    padding: 1rem;
   }
   .nav-bar img {
-    height: 40px !important;
+    height: 35px !important;
+  }
+  .hero-section {
+    padding: 4rem 5%;
+    text-align: center;
   }
   .hero-title {
     font-size: 1.8rem;
+    margin-bottom: 1rem;
   }
   .hero-description {
     font-size: 1rem;
+    margin-bottom: 2rem;
   }
   .hero-btn {
     font-size: 1.1rem;
     padding: 1rem 2rem;
     width: 100%;
+    margin: 0 auto;
+    display: flex;
+  }
+  .features-section {
+    padding: 3rem 5%;
+  }
+  .features-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  .feature-card {
+    padding: 1.5rem;
+  }
+  .documents-section-public {
+    padding: 4rem 5%;
   }
   .documents-header h2 {
-    font-size: 2.2rem;
+    font-size: 2rem;
+  }
+  .documents-header p {
+    font-size: 1rem;
   }
   .document-card-public {
     flex-direction: column;
     align-items: flex-start;
-    gap: 1.5rem;
+    gap: 1rem;
+    padding: 1.2rem;
+  }
+  .doc-info-public {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    width: 100%;
+  }
+  .doc-text h3 {
+    font-size: 1.1rem;
+    word-break: break-word;
   }
   .doc-actions-public {
     width: 100%;
     flex-direction: column;
+    gap: 0.5rem;
   }
   .doc-actions-public a {
     width: 100%;
+    margin-bottom: 0.5rem;
   }
   .admin-header {
     flex-direction: column;
@@ -404,10 +442,22 @@ button, .btn-primary, .btn-secondary, .btn-danger {
   .upload-form {
     flex-direction: column;
   }
+  .documents-grid {
+    grid-template-columns: 1fr;
+  }
   .doc-actions {
     flex-direction: column;
   }
   .doc-actions a, .doc-actions form, .doc-actions button {
     width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 1.5rem;
+  }
+  .documents-header h2 {
+    font-size: 1.8rem;
   }
 }
