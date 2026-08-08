@@ -17,9 +17,6 @@ export default async function Home() {
         <div style={{ display: 'flex', alignItems: 'center' }}>
           <img src="/logo.png" alt="ICRW, LAREM, Mastercard Foundation" style={{ height: '50px', objectFit: 'contain' }} />
         </div>
-        <Link href="/admin" className="admin-link">
-          Administration
-        </Link>
       </nav>
 
       {/* Hero Section */}
@@ -72,7 +69,7 @@ export default async function Home() {
           <p>Fichiers actuellement disponibles en libre accès.</p>
         </div>
 
-        <div className="documents-list">
+        <div className="documents-list" style={{ maxHeight: '600px', overflowY: 'auto', paddingRight: '10px' }}>
           {documents.map((doc: any) => (
             <div key={doc.id} className="document-card-public">
               <div className="doc-info-public">
