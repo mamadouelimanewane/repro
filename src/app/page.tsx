@@ -41,26 +41,7 @@ export default async function Home() {
         </div>
       </header>
 
-      {/* Features Section */}
-      <section className="features-section">
-        <div className="features-grid">
-          <div className="feature-card card">
-            <Zap size={48} color="var(--primary)" style={{ marginBottom: '1.5rem' }} />
-            <h3>Ultra-Rapide</h3>
-            <p>Téléchargement instantané des documents propulsé par l'infrastructure Cloud Edge de Vercel.</p>
-          </div>
-          <div className="feature-card card">
-            <Shield size={48} color="var(--primary)" style={{ marginBottom: '1.5rem' }} />
-            <h3>Fiable</h3>
-            <p>Toutes les données sont stockées de manière résiliente et hautement disponible grâce à PostgreSQL.</p>
-          </div>
-          <div className="feature-card card">
-            <Globe size={48} color="var(--primary)" style={{ marginBottom: '1.5rem' }} />
-            <h3>Accessible</h3>
-            <p>Consultez et téléchargez vos documents depuis n'importe où, sur PC, tablette ou smartphone.</p>
-          </div>
-        </div>
-      </section>
+
 
       {/* Documents Section */}
       <section id="documents" className="documents-section-public">
